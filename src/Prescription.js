@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // Import Materialize
 import M from "materialize-css";
 
-
+import axios from 'axios';
 export class Prescription extends Component {
 
     componentDidMount() {
@@ -14,6 +14,12 @@ export class Prescription extends Component {
             indicators: true
         })
 
+
+
+    }
+
+    state = {
+        response: ""
     }
 
     submit() {
@@ -25,6 +31,11 @@ export class Prescription extends Component {
             document.getElementById("card_1").style.visibility = "visible";
 
         }, 3000);
+
+        axios.post('', (response) => {
+            this.setState({ response: response });
+        })
+
     }
     render() {
         return (
